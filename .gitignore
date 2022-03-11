@@ -1,0 +1,5 @@
+.idea/
+*.iml
+target/
+.DS_Store
+wildfly-26.0.0.Final

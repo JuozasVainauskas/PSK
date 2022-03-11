@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <header>
+        <h:link value="Sellers " outcome="index"/>
+        <h:link value="Items " outcome="items"/>
+        <h:link value="Categories " outcome="categories"/>
+    </header>
+
+    <h2>Seller #{sellerItems.seller.name}</h2>
+    <h2>Items in #{sellerItems.seller.name} seller:</h2>
+    <ol>
+        <ui:repeat value="#{sellerItems.seller.items}" var="item">
+            <li>
+                <h:link value="#{item.name}" outcome="itemDetails?itemId=#{item.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="Item name" value="#{sellerItems.itemToCreate.name}" required="true" />
+        <h:selectManyCheckbox  value="#{sellerItems.itemToCreate.categories}">
+            <f:selectItems value="#{categories.allCategories}" var="tag" itemValue="#{tag}" itemLabel="#{tag.name}"/>
+        </h:selectManyCheckbox><br/>
+        <h:commandButton value="Add item to the seller"
+                         actionListener="#{sellerItems.createItem}"
+                         action="#{'sellerItems?faces-redirect=true&amp;sellerId='.concat(sellerItems.seller.id)}">
+            <f:param name="sellerId" value="#{sellerItems.seller.id}" />
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>
