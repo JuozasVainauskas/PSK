@@ -13,8 +13,7 @@
         <h:link value="Categories " outcome="categories"/>
     </header>
 
-    <h2>Seller #{sellerItems.seller.name}</h2>
-    <h2>Items in #{sellerItems.seller.name} seller:</h2>
+    <h3>Seller's name: #{sellerItems.seller.name}</h3>
     <ol>
         <ui:repeat value="#{sellerItems.seller.items}" var="item">
             <li>
