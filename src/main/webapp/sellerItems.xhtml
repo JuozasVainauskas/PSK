@@ -18,6 +18,11 @@
         <ui:repeat value="#{sellerItems.seller.items}" var="item">
             <li>
                 <h:link value="#{item.name}" outcome="itemDetails?itemId=#{item.id}" />
+                <h:form><h:commandButton value="Delete item"
+                                 actionListener="#{sellerItems.deleteItem(item.id)}"
+                                 action="#{'sellerItems?faces-redirect=true&amp;sellerId='.concat(sellerItems.seller.id)}">
+                    <f:param name="sellerId" value="#{sellerItems.seller.id}" />
+                </h:commandButton></h:form>>
             </li>
         </ui:repeat>
     </ol>

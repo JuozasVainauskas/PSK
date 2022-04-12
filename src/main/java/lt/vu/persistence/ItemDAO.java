@@ -28,4 +28,7 @@ public class ItemDAO {
     public Item update(Item item){
         return em.merge(item);
     }
+
+    public void delete(Item item) {
+        this.em.remove(item); }
 }

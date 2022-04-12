@@ -44,4 +44,10 @@ public class SellerItems implements Serializable {
         itemToCreate.setSeller(this.seller);
         itemDAO.persist(itemToCreate);
     }
+
+    @Transactional
+    public void deleteItem(int itemID) {
+        Item itemToDelete = itemDAO.findOne(itemID);
+        itemDAO.delete(itemToDelete);
+    }
 }
