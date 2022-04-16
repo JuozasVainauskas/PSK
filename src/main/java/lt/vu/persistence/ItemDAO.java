@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @ApplicationScoped
-public class ItemDAO {
+public class ItemDAO implements IItemDAO {
 
     @Inject
     private EntityManager em;
@@ -21,7 +21,7 @@ public class ItemDAO {
         this.em.persist(item);
     }
 
-    public Item findOne(Integer id){
+    public Item findOne(Integer id) {
         return em.find(Item.class, id);
     }
 

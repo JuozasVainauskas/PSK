@@ -22,6 +22,11 @@
         <h:commandButton value="update" action="#{updateItemDetails.updateItem()}">
             <f:param name="itemId" value="#{updateItemDetails.item.id}" />
         </h:commandButton>
+        <h:commandButton value="update ASYNC" action="#{updateItemName.updateAsync()}">
+            <f:param name="itemId" value="#{updateItemDetails.item.id}" />
+        </h:commandButton><br/>
+        <h:outputText value="#{updateItemName.update1Status}" /><br/>
+        <h:outputText value="#{updateItemName.update2Status}" />
     </h:form>
 
     <h3>#{updateItemDetails.item.name} categories:</h3>

@@ -35,6 +35,10 @@ public class Item {
             inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID"))
     private List<Category> categories = new ArrayList<>();
 
+    @Version
+    @Column(name = "VERSION")
+    private Integer version;
+
     @Override
     public int hashCode() {
         return Objects.hash(name);
